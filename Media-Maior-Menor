@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#define MAX 25
+
+void maior( );
+void menor( );
+void media( );
+
+int controle = 0;
+float novo = 0;
+float lista[MAX] = { } ;
+float mr = 0.0, mn = 0.0, md = 0.0;
+
+int main(){
+
+//	printf("\n\n###################################################\n\n");
+	printf(" Digite a quantidade de entradas a serem consideradas: ");
+	scanf("%d", &controle);
+	
+		//LINUX = CLEAR
+	system("clear");
+		
+		//WINDOWS = CLS
+	//system("cls");
+		
+
+
+	if(controle > MAX){
+			system("clear");
+			//system("cls");
+			printf("\n \t Valor Maior que o programa suporta! \n ");
+			while(controle > MAX){
+				printf("Digite novamente: ");
+				scanf("%d", &controle);
+			}
+			//system("cls");
+			system("clear");
+	}
+	
+	printf("\n\tDigite 1 valor por vez!");
+	for( int j = 1 ; j <= controle ; j++){
+		printf("\n \t NOVO VALOR: ");
+		scanf("%f",&lista[j]);
+		system("clear");
+		//system("cls");
+	}	
+
+	maior();
+	menor();
+	media();
+
+	printf(" \n \t Numero de elementos: %d \n\nMaior: %.2f \nMmenor: %.2f \nMedia: %.2f \n\n ",controle, mr, mn, md);
+
+
+}
+
+void maior(){
+	for(int i = 1 ; i <= controle ; i++ ){
+		//printf("\n maior: %.2f ", lista[i]);
+		if( lista[i] > mr ){
+			mr = lista[i];
+		}
+	}
+}
+
+void menor(){
+	mn = mr;
+	for(int i = 1; i <= controle ; i++){
+		//printf("\n menor: %.2f ", lista[i]);
+		if( lista[i] < mn){
+			mn = lista[i];
+		}
+	}
+
+}
+
+void media(){
+	for (int i = 1 ; i <= controle ; i++){
+		md += lista[i];
+	}
+	md = md/controle;
+}
